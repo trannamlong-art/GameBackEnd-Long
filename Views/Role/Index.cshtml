@@ -1,0 +1,46 @@
+﻿@using WebApplication1.Models
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<WebApplication1.Models.Role>
+@{
+    ViewData["Title"] = "Role Index";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Role ID</th>
+            <th>User</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.roleId</td>
+                <td>@item.Name</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.roleId" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.roleId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Thêm User mới</h2>
+
+<form asp-action="Create" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="roleName">User</label>
+        <!-- dùng 'name' plain để binder vào parameter Role.roleName -->
+        <input type="text" name="Name" id="roleName" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success mt-2">Lưu</button>
+</form>
+
