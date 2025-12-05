@@ -51,28 +51,6 @@ namespace WebApplication1.Controllers
             }
             return View(role);
         }
-        // [HttpPost]
-        // public ActionResult Delete(int roleId)
-        // {
-        //     var role = _context.Roles.Find(roleId);
-        //     if (role != null)
-        //     {
-        //         _context.Roles.Remove(role);
-        //         _context.SaveChanges();
-        //     }
-        //     return RedirectToAction("Index");
-        // }
-        // [HttpPost]
-        // public ActionResult ChangeRoleName(int roleId, string newName)
-        // {
-        //     var role = _context.Roles.Find(roleId);
-        //     if (role != null)
-        //     {
-        //         role.Name = newName;
-        //         _context.SaveChanges();
-        //     }
-        //     return RedirectToAction("Index");
-        // }
 
         [HttpPost]
         public ActionResult Edit(Role role)
